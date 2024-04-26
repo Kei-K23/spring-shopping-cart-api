@@ -4,7 +4,8 @@ This is a RESTful API for shopping cart functionality with `Spring Boot`.
 
 ## TODO
 
-- [ ] Setup database
+- [x] Setup database
+- [ ] Setup modeling
 - [ ] Setup endpoints
 - [ ] Develop CURD operations
 - [ ] Add validation for user requests
