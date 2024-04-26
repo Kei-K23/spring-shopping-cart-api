@@ -10,7 +10,7 @@ This is a RESTful API for shopping cart functionality with `Spring Boot`.
 - [x] Develop CURD operations
 - [x] Add validation for user requests
 - [x] Pagination for products
-- [ ] Filter query
+- [x] Filter query
 - [ ] Rate Limiting (10 requests per second)
 - [ ] Add Authentication
 - [ ] Document the API
