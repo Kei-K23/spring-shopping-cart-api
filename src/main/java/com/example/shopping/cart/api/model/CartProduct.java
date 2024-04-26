@@ -1,6 +1,7 @@
 package com.example.shopping.cart.api.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class CartProduct {
@@ -9,10 +10,13 @@ public class CartProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private Long cartId;
 
+    @NotNull
     private Long productId;
 
+    @Column(columnDefinition = "INT DEFAULT 0")
     private Integer quantity;
 
     public Long getId() {

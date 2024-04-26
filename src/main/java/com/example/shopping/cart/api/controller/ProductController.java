@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.shopping.cart.api.model.Product;
 import com.example.shopping.cart.api.service.ProductService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/v1/products")
 public class ProductController {
@@ -32,12 +34,12 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Product saveProduct(@RequestBody Product product) {
+    public Product saveProduct(@Valid @RequestBody Product product) {
         return productService.saveProduct(product);
     }
 
     @PutMapping("/{id}")
-    public Product updateProduct(@PathVariable Long id, @RequestBody Product product) {
+    public Product updateProduct(@PathVariable Long id, @Valid @RequestBody Product product) {
         product.setId(id);
         return productService.saveProduct(product);
     }

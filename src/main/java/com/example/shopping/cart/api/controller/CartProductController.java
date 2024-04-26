@@ -12,6 +12,8 @@ import com.example.shopping.cart.api.model.CartProduct;
 import com.example.shopping.cart.api.service.CartProductService;
 import com.example.shopping.cart.api.service.CartService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/v1/cart-product")
 public class CartProductController {
@@ -36,7 +38,7 @@ public class CartProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CartProduct saveCart(@RequestBody CartProduct cartProduct) {
+    public CartProduct saveCart(@Valid @RequestBody CartProduct cartProduct) {
         CartProduct cp = cartProductService.saveCartProduct(cartProduct);
 
         // update the quantity of cart
@@ -51,7 +53,7 @@ public class CartProductController {
     }
 
     @PutMapping("/{id}")
-    public CartProduct updateCartProduct(@PathVariable Long id, @RequestBody CartProduct cartProduct) {
+    public CartProduct updateCartProduct(@PathVariable Long id, @Valid @RequestBody CartProduct cartProduct) {
         cartProduct.setId(id);
         return cartProductService.saveCartProduct(cartProduct);
     }

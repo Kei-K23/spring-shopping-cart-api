@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import com.example.shopping.cart.api.model.Cart;
 import com.example.shopping.cart.api.service.CartService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/v1/carts")
 public class CartController {
@@ -32,12 +34,12 @@ public class CartController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Cart saveCart(@RequestBody Cart cart) {
+    public Cart saveCart(@Valid @RequestBody Cart cart) {
         return cartService.saveCart(cart);
     }
 
     @PutMapping("/{id}")
-    public Cart updateCart(@PathVariable Long id, @RequestBody Cart cart) {
+    public Cart updateCart(@PathVariable Long id, @Valid @RequestBody Cart cart) {
         cart.setId(id);
         return cartService.saveCart(cart);
     }
