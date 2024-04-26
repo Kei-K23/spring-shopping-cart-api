@@ -5,41 +5,38 @@ import jakarta.persistence.*;
 @Entity
 public class CartProduct {
 
-    @EmbeddedId
-    private CartProductKey id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "cartId", referencedColumnName = "id", insertable = false, updatable = false)
-    private Cart cart;
+    private Long cartId;
 
-    @ManyToOne
-    @JoinColumn(name = "productId", referencedColumnName = "id", insertable = false, updatable = false)
-    private Product product;
+    private Long productId;
 
     private Integer quantity;
 
-    public CartProductKey getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(CartProductKey id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Cart getCart() {
-        return cart;
+    public Long getCartId() {
+        return cartId;
     }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    public void setCartId(Long cartId) {
+        this.cartId = cartId;
     }
 
-    public Product getProduct() {
-        return product;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public Integer getQuantity() {
