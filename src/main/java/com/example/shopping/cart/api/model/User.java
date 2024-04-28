@@ -9,15 +9,22 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.example.shopping.cart.api.enums.UserRole;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 
 @Table
 @Entity(name = "users")
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true)
+    @NotBlank
     private String username;
 
     private String email;
@@ -45,7 +52,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return username;
     }
 
     @Override
@@ -71,6 +78,18 @@ public class User implements UserDetails {
     @Override
     public String getPassword() {
         return password;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public UserRole getRole() {
+        return role;
     }
 
 }

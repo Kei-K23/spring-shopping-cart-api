@@ -1,0 +1,14 @@
+{
+    "properties": [
+        {
+            "name": "my.custom.property",
+            "type": "java.lang.String",
+            "description": "A description for 'my.custom.property'"
+        },
+        {
+            "name": "security.jwt.token.secret-key",
+            "type": "java.lang.String",
+            "description": "A description for 'security.jwt.token.secret-key'"
+        }
+    ]
+}
