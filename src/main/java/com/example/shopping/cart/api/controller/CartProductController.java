@@ -18,6 +18,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/cart-product")
+@CrossOrigin
 public class CartProductController {
     private final CartProductService cartProductService;
     private final CartService cartService;

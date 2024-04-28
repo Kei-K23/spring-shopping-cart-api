@@ -15,8 +15,8 @@ public class OpenAPIConfig {
     @Bean
     public OpenAPI defineOpenApi() {
         Server server = new Server();
-        server.setUrl("http://localhost:8080");
-        server.setDescription("Development");
+        server.setUrl("https://spring-shopping-cart-api.onrender.com");
+        server.setDescription("Production");
 
         Contact myContact = new Contact();
         myContact.setName("Arkar Min");

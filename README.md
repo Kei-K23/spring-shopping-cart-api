@@ -2,6 +2,8 @@
 
 This is a RESTful API for shopping cart functionality with `Spring Boot`.
 
+[Visit the API documentation](https://spring-shopping-cart-api.onrender.com/swagger-ui/index.html)
+
 ## Teach Stack
 
 - Spring + Spring Boot 3
@@ -17,6 +19,14 @@ This is a RESTful API for shopping cart functionality with `Spring Boot`.
 - Rate limit to `/api/v1/products` routes (10 requests per 10 seconds)
 - Pagination
 - Query filter
+
+## Available Endpoints
+
+- `https://spring-shopping-cart-api.onrender.com/api/v1/products`
+- `https://spring-shopping-cart-api.onrender.com/api/v1/auth`
+- `https://spring-shopping-cart-api.onrender.com/api/v1/carts`
+- `https://spring-shopping-cart-api.onrender.com/api/v1/cart-product`
+- Detail endpoints, visit the documentation
 
 ## TODO
 
