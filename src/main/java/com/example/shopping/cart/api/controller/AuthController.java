@@ -16,6 +16,9 @@ import com.example.shopping.cart.api.dto.SignUpDto;
 import com.example.shopping.cart.api.model.User;
 import com.example.shopping.cart.api.service.AuthService;
 
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +37,9 @@ public class AuthController {
     private TokenProvider tokenProvider;
 
     @PostMapping("/signup")
+    @ApiResponse(responseCode = "200", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = CreatedUserResponseDto.class))
+    })
     public ResponseEntity<CreatedUserResponseDto> signUp(@RequestBody @Valid SignUpDto data) {
         User user = authService.signUp(data);
 
@@ -42,6 +48,9 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
+    @ApiResponse(responseCode = "200", content = {
+            @Content(mediaType = "application/json", schema = @Schema(implementation = JwtDto.class))
+    })
     public ResponseEntity<JwtDto> signIn(@RequestBody @Valid SignInDto data) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.username(), data.password());
         var authUser = authenticationManager.authenticate(usernamePassword);

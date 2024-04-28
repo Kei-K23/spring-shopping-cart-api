@@ -29,6 +29,9 @@ public class AuthConfig {
                 .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.POST, "/api/v1/products")
                         .hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/*").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api-docs").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api-docs/*").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/swagger-ui/*").permitAll()
                         .anyRequest()
                         .authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class).build();
