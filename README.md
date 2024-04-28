@@ -30,4 +30,4 @@ This is a RESTful API for shopping cart functionality with `Spring Boot`.
 - [x] Rate Limiting (10 requests per second)
 - [x] Add Authentication
 - [x] Document the API
-- [ ] Containerizing the application
+- [x] Containerizing the application

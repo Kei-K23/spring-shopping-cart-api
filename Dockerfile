@@ -1,15 +1,11 @@
-FROM eclipse-temurin:17-jdk-focal
+FROM openjdk:17
 
 WORKDIR /app
 
-COPY .mvn/ .mvn
+COPY ./target/shopping-cart-api-0.0.1-SNAPSHOT.jar /app
 
-COPY mvnw pom.xml ./
+COPY ./.env /app
 
-RUN ./mvnw dependency:go-offline
+EXPOSE 8080
 
-COPY src ./src
-
-RUN ./mvnw clean install
-
-CMD [ "./mvnw", "spring-boot:run" ]
+ENTRYPOINT ["java", "-jar", "shopping-cart-api-0.0.1-SNAPSHOT.jar"]
