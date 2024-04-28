@@ -2,6 +2,7 @@ package com.example.shopping.cart.api.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Product {
@@ -11,7 +12,7 @@ public class Product {
     @NotBlank
     private String name;
     private String description;
-    @NotBlank
+    @NotNull
     private Double price;
     @Column(columnDefinition = "INT DEFAULT 1")
     private Integer quantity;

@@ -14,6 +14,7 @@ import lombok.*;
 
 @Table
 @Entity(name = "users")
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode

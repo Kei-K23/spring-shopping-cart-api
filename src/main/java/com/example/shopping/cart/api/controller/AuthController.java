@@ -45,6 +45,7 @@ public class AuthController {
     public ResponseEntity<JwtDto> signIn(@RequestBody @Valid SignInDto data) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.username(), data.password());
         var authUser = authenticationManager.authenticate(usernamePassword);
+
         var accessToken = tokenProvider.generateAccessToken((User) authUser.getPrincipal());
 
         return ResponseEntity.ok(new JwtDto(accessToken));
